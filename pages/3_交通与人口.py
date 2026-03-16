@@ -10,25 +10,46 @@ st.set_page_config(page_title="交通与人口 | 微更新平台", layout="wide"
 # ==========================================
 st.markdown("""
     <style>
-    [data-testid="stSidebarNav"] {display: none;}
-    .block-container {
-        padding-top: 3.5rem !important; 
-        padding-bottom: 0rem !important;
+    /* 1. 彻底炸毁原生顶栏和侧边栏导航 */
+    [data-testid="stHeader"] {display: none !important;}
+    [data-testid="stSidebarNav"] {display: none !important;}
+
+    /* 2. 极致贴顶 */
+    .block-container { padding-top: 1rem !important; padding-bottom: 0rem !important;}
+
+    /* 3. 完美的悬浮导航栏 */
+    a[data-testid="stPageLink-NavLink"] {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 8px !important; padding: 0.6rem 1rem !important;
+        display: flex !important; justify-content: center !important;
+        text-decoration: none !important; transition: all 0.3s ease !important;
     }
-    button[data-testid="stBaseButton-secondary"] {
-        height: 3rem !important;
-        padding: 0.5rem 1rem !important;
-        border-radius: 8px !important;
+    a[data-testid="stPageLink-NavLink"]:hover {
+        background-color: rgba(255, 255, 255, 0.25) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important; transform: translateY(-2px);
     }
-    div[data-testid="stHorizontalBlock"] a {
-        font-size: 18px !important;
-        font-weight: 600 !important;
-        text-decoration: none !important;
+    a[data-testid="stPageLink-NavLink"] p, a[data-testid="stPageLink-NavLink"] span {
+        font-size: 18px !important; font-weight: 600 !important; color: #f8fafc !important; margin: 0 !important;
     }
-    [data-testid="stDeckGlJsonChart"] {
-        height: 75vh !important; 
-        min-height: 650px !important;
+
+    /* 4. 全局暗黑模式 */
+    .stApp { background-color: #0f172a; }
+    h1, h2, h3, h4, h5, label, .stMarkdown p { color: #f8fafc !important; }
+
+    /* 🌟 5. 核心修复：侧边栏暴力变白！ */
+    [data-testid="stSidebar"] { background-color: #1e293b !important; border-right: 1px solid #334155 !important; }
+    /* 用 * 号强行让侧边栏里所有的字（滑块数值、勾选框等）全部变成极光白！ */
+    [data-testid="stSidebar"] * { color: #f8fafc !important; }
+
+    /* 6. 其他组件暗黑化 */
+    div[data-baseweb="select"] > div, textarea, input, section[data-testid="stFileUploader"] {
+        background-color: #1e293b !important; color: #f8fafc !important; border: 1px solid #475569 !important;
     }
+    [data-testid="stMetricValue"], [data-testid="stMetricLabel"] { color: #f8fafc !important; }
+
+    /* 7. 地图巨幕高度 */
+    [data-testid="stDeckGlJsonChart"] { height: 75vh !important; min-height: 650px !important; }
     </style>
     """, unsafe_allow_html=True)
 
