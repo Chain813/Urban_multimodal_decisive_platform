@@ -127,7 +127,7 @@ with c2:
     st.markdown(
         "<p style='color:#cbd5e1 !important; font-size:0.95rem; height: 45px;'>基于 Stable Diffusion + ControlNet 的工业遗产风貌修缮与沉浸式推演。</p>",
         unsafe_allow_html=True)
-    st.page_link("pages/2_AIGC 风貌管控.py", label="🎨 启动风貌管控", use_container_width=True)
+    st.page_link("pages/2_AIGC风貌管控.py", label="🎨 启动风貌管控", use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 with c3:
