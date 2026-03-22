@@ -11,7 +11,7 @@ st.set_page_config(page_title="数据管理中心", layout="wide", initial_sideb
 import streamlit as st
 from ui_components import render_top_nav # 引入外援
 
-st.set_page_config(page_title="数据管理中心", layout="wide")
+
 render_top_nav() # 一行代码搞定几十行的 CSS 和导航栏！
 
 # 下面接着写你这一页的核心业务逻辑...
